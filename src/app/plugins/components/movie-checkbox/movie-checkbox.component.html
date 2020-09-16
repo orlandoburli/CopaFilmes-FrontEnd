@@ -1,4 +1,4 @@
-<div class="movie-item" (click)="toogleSelecion()">
+<div id="movie-{{ movie?.id }}" class="movie-item" (click)="toogleSelecion()">
   <div class="checkbox">
     <i *ngIf="!selected" class="fa-lg fa fa-square-o" aria-hidden="true"></i>
     <i *ngIf="selected" class="fa-lg fa fa-check-square-o" aria-hidden="true"></i>

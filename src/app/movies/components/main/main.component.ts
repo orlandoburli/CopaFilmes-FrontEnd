@@ -21,12 +21,17 @@ export class MainComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[] = [];
 
+  errorMessage = '';
+
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
     let s1 = this.moviesService
       .getMovies()
-      .subscribe((result) => (this.movies = result));
+      .subscribe((result) => (this.movies = result), error => {
+        this.errorMessage = 'Ocorreu um erro ao buscar os dados de filmes';
+        console.log(error);
+      });
     this.subscriptions.push(s1);
   }
 
@@ -40,6 +45,10 @@ export class MainComponent implements OnInit, OnDestroy {
       .subscribe((result) => {
         this.champions = result;
         this.state = State.presentChampions;
+      }, error => {
+        this.state = State.selectMovies;
+        this.errorMessage = 'Ocorreu um erro ao buscar o campeão dos filmes';
+        console.log(error);
       });
 
     this.subscriptions.push(s1);
