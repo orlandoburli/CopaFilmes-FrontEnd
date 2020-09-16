@@ -1,0 +1,9 @@
+<div class="container">
+  <app-movie-selection [movies]="movies" (championsSelected)="onChampionsSelected($event)"
+    *ngIf="state == 'select-movies'">
+  </app-movie-selection>
+
+  <app-loading *ngIf="state == 'loading'"></app-loading>
+
+  <app-champions-results [champion]="champions" *ngIf="state == 'present-champions'"></app-champions-results>
+</div>

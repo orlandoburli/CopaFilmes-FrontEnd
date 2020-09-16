@@ -1,0 +1,26 @@
+<app-title title="Fase de Seleção" subTitle="Campeonato de Filmes"
+  message="Selecione 8 filmes que você deseja que entrem na competição e depois pressione o botão Gerar Meu Campeonato para prosseguir">
+</app-title>
+
+<app-alert [message]="errorMessage"></app-alert>
+
+<div class="row line-buttons">
+  <div class="col">
+    <span class="selecionados align-middle">
+      Selecionados {{ selectedMovies.length }} de {{ maxMovies }} filmes
+    </span>
+  </div>
+
+  <div class="col text-right">
+    <button id="btn-generate" (click)="doGenerateChampionship()" class="btn btn-lg btn-secondary">Gerar meu
+      campeonato</button>
+  </div>
+</div>
+
+<div class="movie-list">
+  <div class="row row-cols-4">
+    <div class="col" *ngFor="let movie of movies">
+      <app-movie-checkbox [movie]="movie" (change)="onSelectionChange($event)"></app-movie-checkbox>
+    </div>
+  </div>
+</div>

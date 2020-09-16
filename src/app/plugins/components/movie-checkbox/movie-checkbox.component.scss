@@ -1,0 +1,36 @@
+.movie-item {
+  color: #000000;
+  display: block;
+  background-color: #ffffff;
+  height: 100px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  .checkbox {
+    width: 20px;
+    position: relative;
+    top: 40px;
+    left: 20px;
+  }
+
+  .movie {
+    position: relative;
+    top: 0px;
+    left: 60px;
+    display: block;
+    width: 140px;
+
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .year {
+      display: block;
+      text-align: left;
+      font-size: 11px;
+    }
+  }
+
+}
